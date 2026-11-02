@@ -56,7 +56,7 @@ create table if not exists public.versions (
   widget_id   text not null references public.widgets (id) on delete cascade,
   version     int  not null default 0,               -- 1, 2, 3... set by the trigger below
   name        text not null check (length(name) between 1 and 40),
-  category    text not null check (category in ('clocks', 'productivity', 'weather', 'system', 'media', 'developer', 'sports')),
+  category    text not null check (category in ('clocks', 'productivity', 'weather', 'system', 'media', 'developer', 'sports', 'finance', 'news', 'utility', 'social', 'health', 'travel', 'games')),
   description text not null default '' check (length(description) <= 120),
   api_version int  not null default 1 check (api_version >= 1),
   source      text not null check (octet_length(source) <= 524288),
