@@ -153,6 +153,9 @@ namespace DeskWidgets
             Ui.Later(Community.CheckForUpdates, 30000);
             updateTimer.Tick += delegate { Community.CheckForUpdates(); };
             updateTimer.Start();
+
+            // Check for a newer release of the app itself (once, 15 s after start).
+            Ui.Later(AppUpdater.CheckInBackground, 15000);
         }
 
         // Runs on the UI thread (from a background thread, or later when already on it).
@@ -494,8 +497,10 @@ namespace DeskWidgets
             if (highPriority)
                 Current.CreateScheduledTask();
             else
-                using (var k = Registry.CurrentUser.CreateSubKey(RunKey))
-                    k.SetValue(RunName, RunCommand);
+            {
+                try { using (var k = Registry.CurrentUser.CreateSubKey(RunKey)) k.SetValue(RunName, RunCommand); }
+                catch (Exception) { }
+            }
         }
 
         static bool HasScheduledTask()

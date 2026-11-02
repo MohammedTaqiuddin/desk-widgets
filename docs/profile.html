@@ -7,7 +7,23 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <main class="content section" id="page"></main>
+  <main class="content section" id="page">
+    <div aria-hidden="true">
+      <div class="profile-header">
+        <span class="text-skeleton avatar"></span>
+        <div>
+          <span class="text-skeleton heading" style="width:140px"></span>
+          <span class="text-skeleton line short"></span>
+          <span class="text-skeleton by" style="width:80px"></span>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="widget-card placeholder"><div class="art skeleton"></div><div class="widget-card-body"><div class="widget-card-text"><span class="text-skeleton name"></span><span class="text-skeleton by"></span></div></div></div>
+        <div class="widget-card placeholder"><div class="art skeleton"></div><div class="widget-card-body"><div class="widget-card-text"><span class="text-skeleton name"></span><span class="text-skeleton by"></span></div></div></div>
+        <div class="widget-card placeholder"><div class="art skeleton"></div><div class="widget-card-body"><div class="widget-card-text"><span class="text-skeleton name"></span><span class="text-skeleton by"></span></div></div></div>
+      </div>
+    </div>
+  </main>
 
   <script type="module">
     import { nav, el, art, getButton, supabase, configured, categoryName, notice, avatar } from "./assets/site.js";

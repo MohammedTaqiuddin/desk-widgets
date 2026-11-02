@@ -331,8 +331,10 @@ namespace DeskWidgets
             startupToggle = new SidebarItem('', "Start with Windows") { Toggle = true, On = App.StartWithWindows };
             startupToggle.Click += delegate
             {
-                App.StartWithWindows = !App.StartWithWindows;
-                startupToggle.On = App.StartWithWindows;
+                bool on = !startupToggle.On;
+                try { App.StartWithWindows = on; }
+                catch (Exception) { on = startupToggle.On; }
+                startupToggle.On = on;
                 startupToggle.Invalidate();
             };
             content.Controls.Add(startupToggle);

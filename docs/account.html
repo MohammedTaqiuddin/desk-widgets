@@ -8,7 +8,20 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <main class="content section narrow" id="page"></main>
+  <main class="content section narrow" id="page">
+    <div aria-hidden="true">
+      <span class="text-skeleton heading" style="width:200px"></span>
+      <span class="text-skeleton line"></span>
+      <div class="form" style="margin-top:32px">
+        <div class="field"><span class="text-skeleton heading" style="width:30%"></span><span class="text-skeleton field"></span></div>
+        <div class="field"><span class="text-skeleton heading" style="width:35%"></span><span class="text-skeleton field"></span></div>
+        <div class="field"><span class="text-skeleton heading" style="width:25%"></span><span class="text-skeleton field" style="height:80px"></span></div>
+        <div class="field"><span class="text-skeleton heading" style="width:40%"></span>
+          <div style="display:flex;gap:16px;align-items:center"><span class="text-skeleton avatar" style="width:64px;height:64px"></span><span class="text-skeleton field" style="width:140px;height:32px"></span></div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script type="module">
     import { nav, el, notice, supabase, configured, me, toast, avatar } from "./assets/site.js";

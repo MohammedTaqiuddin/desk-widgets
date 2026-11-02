@@ -21,16 +21,7 @@
         <a class="button download" href="#">Download</a>
         <a class="more" href="explore.html">Explore widgets</a>
       </div>
-      <div class="desk" aria-label="Desk Widgets on a desktop">
-        <img class="w2" src="assets/img/calendar-dark.png" width="364" height="170" alt="Calendar widget: today's events beside the month">
-        <canvas class="small" id="clock-light" width="170" height="170" aria-label="Analog clock widget (live)"></canvas>
-        <canvas class="small" id="focus-hero" width="170" height="170" aria-label="Focus timer widget (interactive)"></canvas>
-        <img class="w2" src="assets/img/weather-light.png" width="364" height="170" alt="Weather widget: now, high and low, and the next hours">
-        <img src="assets/img/system-dark.png" width="170" height="170" alt="System widget: CPU, memory and disk">
-        <canvas class="small" id="clock-dark" width="170" height="170" aria-label="Analog clock widget with a dark dial (live)"></canvas>
-        <canvas class="w2 medium" id="now-playing" width="364" height="170" aria-label="Now Playing widget (interactive, click to play)"></canvas>
-        <img class="w2" src="assets/img/github-dark.png" width="364" height="170" alt="GitHub widget: streak and contribution graph">
-      </div>
+      <div class="carousel-scene" id="carousel" aria-label="Widget carousel"></div>
     </section>
 
     <!-- Light: the numbers as stat callouts (§2.2). -->
@@ -126,19 +117,16 @@ public sealed class HelloWidget : WidgetWindow
 
   <script type="module">
     import { nav, DOWNLOAD_URL, REPO_URL } from "./assets/site.js";
-    import { analogClock, focusTimer, nowPlaying } from "./assets/widgets.js";
+    import { focusTimer } from "./assets/widgets.js";
+    import { carousel } from "./assets/carousel.js";
     nav("home");
     for (const a of document.querySelectorAll(".download")) a.href = DOWNLOAD_URL;
     document.getElementById("sample").href = REPO_URL + "/blob/main/samples/HelloWidget.cs";
     document.getElementById("source").href = REPO_URL;
-    requestAnimationFrame(() => requestAnimationFrame(() => document.querySelector(".desk").classList.add("in")));
 
-    analogClock(document.getElementById("clock-light"), "light");
-    analogClock(document.getElementById("clock-dark"), "dark");
-    focusTimer(document.getElementById("focus-hero"), "light");
+    carousel(document.getElementById("carousel"), "assets/img/");
     focusTimer(document.getElementById("focus-light"), "light");
     focusTimer(document.getElementById("focus-dark"), "dark");
-    nowPlaying(document.getElementById("now-playing"));
   </script>
 </body>
 </html>
