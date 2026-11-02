@@ -133,6 +133,13 @@ namespace DeskWidgets
                 new[] { ButtonStyle.Primary, ButtonStyle.Destructive }, 0, 0) == 1;
         }
 
+        // An app update is available: Later is the default, Install is blue.
+        public static bool ConfirmUpdate(string title, string message)
+        {
+            return Run(title, message, null, null, null, new[] { "Later", "Install" },
+                new[] { ButtonStyle.Grey, ButtonStyle.Primary }, 0, 0) == 1;
+        }
+
         // The install prompt: facts, the warning, the source one click away. Cancel is the default.
         public static bool ConfirmInstall(string name, string title, IList<KeyValuePair<string, string>> facts, string source)
         {
