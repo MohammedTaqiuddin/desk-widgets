@@ -9,6 +9,8 @@ export { RELEASES_URL, DOWNLOAD_URL, REPO_URL };
 export const CATEGORIES = [
   ["clocks", "Clocks"], ["productivity", "Productivity"], ["weather", "Weather"],
   ["system", "System"], ["media", "Media"], ["developer", "Developer"], ["sports", "Sports"],
+  ["finance", "Finance"], ["news", "News"], ["utility", "Utility"], ["social", "Social"],
+  ["health", "Health"], ["travel", "Travel"], ["games", "Games"],
 ];
 export const categoryName = id => (CATEGORIES.find(c => c[0] === id) || [id, id])[1];
 
